@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import  Steps  from './steps'
 //import MultiStep from './index'
-import MultiStep  from 'react-multistep'
 import {
   Grid,
   Row,
@@ -18,6 +17,7 @@ class MemberShip extends Component {
           <Row>
          
           <Steps/>
+         
     </Row>
         </Grid>
       </div>

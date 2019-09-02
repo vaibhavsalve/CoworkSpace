@@ -6,11 +6,17 @@ import Icons from "views/Icons.jsx";
 import Maps from "views/Maps.jsx";
 import Notifications from "views/Notifications.jsx";
 import  Invoice from './views/Invoice/Invoice.js'
-import Membershipform from './views/bootsrtapform/Membershipform'
+
 import MemForm from './views/src/Memform'
 import UsersProfile from './views/Users'
 import Invoices from './views/Invoices'
-import Addroom from './views/Roomform'
+
+import customersDetails from './views/Customers'
+import BookingDetails from './views/Room_booking'
+import MembershipDetails from './views/MembershipDetails'
+import Table from './views/Table'
+import Desk_post_api from './views/Desk_post_api'
+import Customer_postApi from './views/Customer_postApi'
 
 const dashboardRoutes = [
   {
@@ -21,6 +27,13 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
+    path: "/Tablelist",
+    name: "TableList",
+    icon: "pe-7s-graph",
+    component: Table,
+    layout: "/admin"
+  },
+  {
     path: "/invoice",
     name: "Invoice",
     icon: "pe-7s-graph",
@@ -28,31 +41,24 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/AddRooms",
-    name: "AddRooms",
-    icon: "pe-7s-graph",
-    component: Addroom,
-    layout: "/admin"
-  },
-  {
-    path: "/Membership",
+    path: "/membership",
     name: "Membership",
     icon: "pe-7s-graph",
     component: MemForm,
     layout: "/admin"
   },
-  // {
-  //   path: "/user",
-  //   name: "User Profile",
-  //   icon: "pe-7s-user",
-  //   component: UserProfile,
-  //   layout: "/admin"
-  // },
   {
     path: "/users",
     name: "Users details",
     icon: "pe-7s-user",
     component: UsersProfile,
+    layout: "/admin"
+  },
+  {
+    path: "/MembershipDetails",
+    name: "MembershipDetails",
+    icon: "pe-7s-user",
+    component: MembershipDetails,
     layout: "/admin"
   },
   // {
@@ -91,10 +97,38 @@ const dashboardRoutes = [
   //   layout: "/admin"
   // },
   {
+    path: "/customersDetails",
+    name: "Customers List",
+    icon: "pe-7s-note2",
+    component: customersDetails,
+    layout: "/admin"
+  },
+  {
+    path: "/BookingDetails",
+    name: "BookingDetails",
+    icon: "pe-7s-note2",
+    component: BookingDetails,
+    layout: "/admin"
+  },
+  {
     path: "/notifications",
     name: "Notifications",
     icon: "pe-7s-bell",
     component: Notifications,
+    layout: "/admin"
+  },
+  {
+    path: "/Desk_post_api",
+    name: "Desk_post_api",
+    icon: "pe-7s-bell",
+    component: Desk_post_api,
+    layout: "/admin"
+  },
+  {
+    path: "/Customer_postApi",
+    name: "Customer_postApi",
+    icon: "pe-7s-bell",
+    component: Customer_postApi,
     layout: "/admin"
   },
   

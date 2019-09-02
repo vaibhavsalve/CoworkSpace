@@ -64,6 +64,7 @@
     // .caret{
     //    // @include center-item();
     // }
+  
     
     &.fixed{
         width: calc(100% - $sidebar-width);
@@ -73,6 +74,7 @@
     }
 
 }
+
 
 .navbar-nav > li > .dropdown-menu{
     border-radius: $border-radius-extreme;
@@ -290,5 +292,6 @@
         background-color: transparent;
     }
 }
+
 
 

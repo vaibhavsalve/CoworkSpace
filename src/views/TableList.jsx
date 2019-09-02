@@ -3,11 +3,16 @@ import { Grid, Row, Col, Table } from "react-bootstrap";
 import Card from "components/Card/Card.jsx";
 import { thArray, tdArray } from "variables/Variables.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Tablelist from '../components/ReactGridTable/Reactgridtable'
 import { Redirect } from 'react-router-dom'
+import Model from '../components/Model'
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
+import Button from "../components/CustomButton/CustomButton.jsx";
 const HEROKU_API_HOST = 'https://coworkspace.herokuapp.com';
 const auth_token = `CM+z+hIBBvAIYzyycJziHIpmETKvezOeSZeYHy03KEOfckrxUm7YXojTogsgVbDB7+rBpiDWKoQVt318oTiAIQ==`;
 const Email = `vaibhavsalve27@gmail.com`;
 class TableList extends Component {
+  
   state={
     Rooms:[],
     addButton:true,
@@ -15,7 +20,7 @@ class TableList extends Component {
   }
 
   componentDidMount(){
-    const rooms=null
+    
     fetch(`${HEROKU_API_HOST}/api/v1/rooms`, {
       method: 'GET',
       headers: {
@@ -36,73 +41,31 @@ class TableList extends Component {
         console.error(error);
       });   
   }
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-  }
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/admin/AddRooms' 
-      to={{
-        pathname: "/admin/AddRooms",
-       // search: "?utm=your+face",
-       
-      }}
-      
-      />
-    }
-  }
+  
+ 
+ 
   render() {
-    console.log(this.state)
+   
     const roomheader = ["ID", "Name", "Capacity",'Action'];
-    console.log(this.state.Rooms)
+    
     return (
       <div className="content">
         <Grid fluid>
           <Row>
-            {/* <Col md={12}>
-              <Card
-                title="Striped Table with Hover"
-                category="Here is a subtitle for this table"
-                ctTableFullWidth
-                ctTableResponsive
-                content={
-                  <Table striped hover>
-                    <thead>
-                      <tr>
-                        {thArray.map((prop, key) => {
-                          return <th key={key}>{prop}</th>;
-                        })}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {tdArray.map((prop, key) => {
-                        return (
-                          <tr key={key}>
-                            {prop.map((prop, key) => {
-                              return <td key={key}>{prop}</td>;
-                            })}
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </Table>
-                }
-              />
-            </Col>   */}
+          < Tablelist data={this.state.Rooms}/>
             <Col md={12}>
               <Card
-                title="Rooms details"
+                title="Rooms Details"
                 addButton={this.state.addButton}
-                onClick={this.setRedirect}
-               renderRedirect= {this.renderRedirect()}
+                buttonTitle="Add customer"
+                buttonTitle="Add customer"
                 ctTableFullWidth
                 ctTableResponsive
                 name="Add Room"
               
                 content={
-                  <Table striped hover>
+                  
+                  <Table striped bordered hover>
                     <thead>
                       <tr>
                         {roomheader.map((prop, key) => {
@@ -117,50 +80,39 @@ class TableList extends Component {
                             <td>{prop.id}</td>
                             <td>{prop.name}</td>
                             <td>{prop.capacity}</td>
-                            <td>{this.renderRedirect()}<td bordered={false}><FontAwesomeIcon onClick={this.setRedirect} icon="edit" /></td>
-                            <td bordered={false} > <FontAwesomeIcon icon="trash" /></td>
+                            <td class="td-actions text-right">
+                            {/* <td class="td-actions text-right">
+                              <button type="button" class="btn-simple btn btn-xs btn-info">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            <button type="button" class="btn-simple btn btn-xs btn-danger">
+                              <i class="fa fa-times"></i></button>
+                            </td> */}
+                            <td bordered={false} >
+                            
+                                <Button bsStyle="info" simple type="button" bsSize="xs">
+                                  <i className="fa fa-edit" />
+                                </Button>
+                              
+                            
+                                   </td>
+                              <td bordered={false} >
+                              <Button bsStyle="info" simple type="button" bsSize="xs">
+                              <i class="fa fa-times"></i>
+                                </Button>
+                              {/* <i class="fa fa-times"></i> */}
+                                 {/* <FontAwesomeIcon icon="trash" /> */}
                             </td>
+                            
+                            </td>
+                           
                           </tr>);
                       })}
                     </tbody>
-                  </Table>
+                  </Table >
                 }
               />
-            </Col>
-
-            {/* <Col md={12}>
-              <Card
-                plain
-                title="Striped Table with Hover"
-                category="Here is a subtitle for this table"
-                ctTableFullWidth
-                ctTableResponsive
-                content={
-                  <Table hover>
-                    <thead>
-                      <tr>
-                        {thArray.map((prop, key) => {
-                          return <th key={key}>{prop}</th>;
-                        })}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {tdArray.map((prop, key) => {
-                        return (
-                          <tr key={key}>
-                            {prop.map((prop, key) => {
-                              return <td key={key}>{prop}</td>;
-                            })}
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </Table>
-                }
-
-              
-              />
-            </Col> */}
+            </Col>   
           </Row>
         </Grid>
       </div>

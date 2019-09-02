@@ -47,6 +47,12 @@ class App extends Component {
       currentStep: currentStep + 1,
     });
   }
+  onClickBack() {
+    const { steps, currentStep } = this.state;
+    this.setState({
+      currentStep: currentStep + 1,
+    });
+  }
 
   render() {
     const { steps, currentStep } = this.state;

@@ -1,13 +1,13 @@
 'use strict'
 import React from 'react';
+
+import  StepThree  from './StepThree'
 import { Card } from "components/Card/Card.jsx";
 import {
   Grid,
   Row,
   Col,
-  FormGroup,
-  ControlLabel,
-  FormControl,
+ 
   Form
 } from "react-bootstrap";
 
@@ -44,7 +44,6 @@ export default class StepTwo extends React.Component {
   handleInvoiceAddress(event){
     this.setState({InvoiceAddre: event.target.value})
   }
-
   render () {
     console.log(this.state)
     return (
@@ -56,9 +55,6 @@ export default class StepTwo extends React.Component {
               title="Organization  details"
               content={
       <Form>
-    
-      
-      
       <div class="form-group row ">
           <label for="orgName" class="col-sm-2 col-form-label">Org Name</label>
           <div class="col-sm-10 ">
