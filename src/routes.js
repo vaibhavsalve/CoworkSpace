@@ -6,17 +6,15 @@ import Icons from "views/Icons.jsx";
 import Maps from "views/Maps.jsx";
 import Notifications from "views/Notifications.jsx";
 import  Invoice from './views/Invoice/Invoice.js'
-
 import MemForm from './views/src/Memform'
 import UsersProfile from './views/Users'
-import Invoices from './views/Invoices'
-
 import customersDetails from './views/Customers'
 import BookingDetails from './views/Room_booking'
 import MembershipDetails from './views/MembershipDetails'
-import Table from './views/Table'
-import Desk_post_api from './views/Desk_post_api'
-import Customer_postApi from './views/Customer_postApi'
+
+import DeskDetails from './views/Desk_details'
+
+
 
 const dashboardRoutes = [
   {
@@ -26,13 +24,7 @@ const dashboardRoutes = [
     component: Dashboard,
     layout: "/admin"
   },
-  {
-    path: "/Tablelist",
-    name: "TableList",
-    icon: "pe-7s-graph",
-    component: Table,
-    layout: "/admin"
-  },
+ 
   {
     path: "/invoice",
     name: "Invoice",
@@ -75,6 +67,13 @@ const dashboardRoutes = [
     component: TableList,
     layout: "/admin"
   },
+  {
+    path: "/desk",
+    name: "Desk Details",
+    icon: "pe-7s-note2",
+    component: DeskDetails,
+    layout: "/admin"
+  },
   // {
   //   path: "/typography",
   //   name: "Typography",
@@ -110,27 +109,15 @@ const dashboardRoutes = [
     component: BookingDetails,
     layout: "/admin"
   },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "pe-7s-bell",
-    component: Notifications,
-    layout: "/admin"
-  },
-  {
-    path: "/Desk_post_api",
-    name: "Desk_post_api",
-    icon: "pe-7s-bell",
-    component: Desk_post_api,
-    layout: "/admin"
-  },
-  {
-    path: "/Customer_postApi",
-    name: "Customer_postApi",
-    icon: "pe-7s-bell",
-    component: Customer_postApi,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/notifications",
+  //   name: "Notifications",
+  //   icon: "pe-7s-bell",
+  //   component: Notifications,
+  //   layout: "/admin"
+  // },
+  
+ 
   
 ];
 

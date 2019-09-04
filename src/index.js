@@ -4,12 +4,14 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import  'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import "./assets/css/animate.min.css";
-import "./assets/sass/light-bootstrap-dashboard-react.scss?v=1.3.0";
+import "./assets/sass/light-bootstrap-dashboard-react.scss";
 //import './assets/css/light-bootstrap-dashboard-react.css'
-import '../src/assets/sass/lbd/mixins/_cards.scss'
+import './assets/sass/lbd/mixins/_cards.scss'
  import "./assets/css/custom.css";
  import './assets/css/normalize.css'
-
+ import './assets/css/pe-icon-7-stroke.css';
+ //import './assets/css/skeleton.css';
+ 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee ,fas} from '@fortawesome/free-solid-svg-icons'

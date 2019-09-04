@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Model from '../components/Model'
-const HEROKU_API_HOST = 'https://coworkspace.herokuapp.com'
+import Model from '../components/RoomPostApi'
+const HEROKU_API_HOST = 'https://coworkspace.herokuapp.com';
 const auth_token = `CM+z+hIBBvAIYzyycJziHIpmETKvezOeSZeYHy03KEOfckrxUm7YXojTogsgVbDB7+rBpiDWKoQVt318oTiAIQ==`;
 const Email = `vaibhavsalve27@gmail.com`;
 

@@ -40,12 +40,10 @@ export default class MembershipDetails extends Component {
     
     return (
       <div className="content">
-        <Grid fluid>
-               
+        <Grid fluid>  
             <Col md={12}>
               <Card
                 title="Membership  details"
-                
                 ctTableFullWidth
                 ctTableResponsive
                 name="Add Room"

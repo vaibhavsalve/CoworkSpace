@@ -24,7 +24,7 @@ export default class ReactGridTable extends Component{
     
 }
  commitChanges = ({ added, changed, deleted }) => {
- // let changedRows;
+  let changedRows;
   if (added) {
     const startingAddedId = this.rows.length > 0 ? this.rows[this.rows.length - 1].id + 1 : 0;
     changedRows = [

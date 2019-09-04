@@ -3,7 +3,7 @@ import styles from './Invoice.module.scss';
 import LineItems from './LineItems';
 import uuidv4 from 'uuid/v4'
 import Textbox from './Textbox'
-import Checkbox  from './CheckBox'
+import CustomCheckbox from '../../components/CustomCheckbox/CustomCheckbox'
 const HEROKU_API_HOST = 'https://coworkspace.herokuapp.com';
 const auth_token = `CM+z+hIBBvAIYzyycJziHIpmETKvezOeSZeYHy03KEOfckrxUm7YXojTogsgVbDB7+rBpiDWKoQVt318oTiAIQ==`;
 const Email = `vaibhavsalve27@gmail.com`;
@@ -205,8 +205,9 @@ class Invoice extends Component {
         <div className={styles.totalContainer}>
         <div className={styles.formgroup_formcheck} >
           <form >
-          <label  className="form-check-label" for="exampleCheck1">GST:</label>
-            <input   type="checkbox" className="form-check-input" id="exampleCheck1"/> 
+          <CustomCheckbox  isChecked={false} label='GST'/>
+          {/* <label  className="form-check-label" for="exampleCheck1">GST:</label>
+            <input   type="checkbox" className="form-check-input" id="exampleCheck1"/>  */}
           </form>
           </div>
           <form>

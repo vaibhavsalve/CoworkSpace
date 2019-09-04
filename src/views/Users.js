@@ -45,8 +45,6 @@ class TableList extends Component {
   }
   render() {
     const Usersheader = ["ID", "Email", "Contact no",'Action'];
-    console.log(this.state)
-   
     return (
       <div className="content">
         <Grid fluid>
@@ -74,6 +72,7 @@ class TableList extends Component {
                             <td>{prop.emergencyContact}</td>
                             <td>
                               {this.renderRedirect()}
+                              
                               <Button bsStyle="info" onClick={this.setRedirect}  fill type="submit">
                               Genarate Invoice
                             </Button></td>
