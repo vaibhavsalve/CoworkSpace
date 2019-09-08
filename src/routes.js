@@ -1,6 +1,6 @@
 import Dashboard from "views/Dashboard.jsx";
 import UserProfile from "views/UserProfile.jsx";
-import TableList from "views/TableList.jsx";
+import TableList from "views/RoomList";
 import Typography from "views/Typography.jsx";
 import Icons from "views/Icons.jsx";
 import Maps from "views/Maps.jsx";
@@ -11,6 +11,7 @@ import UsersProfile from './views/Users'
 import customersDetails from './views/Customers'
 import BookingDetails from './views/Room_booking'
 import MembershipDetails from './views/MembershipDetails'
+import MembershipPlane from './views/MembershipPlane'
 
 import DeskDetails from './views/Desk_details'
 
@@ -51,6 +52,13 @@ const dashboardRoutes = [
     name: "MembershipDetails",
     icon: "pe-7s-user",
     component: MembershipDetails,
+    layout: "/admin"
+  },
+  {
+    path: "/MembershipPlane",
+    name: "MembershipPlane",
+    icon: "pe-7s-user",
+    component: MembershipPlane,
     layout: "/admin"
   },
   // {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Row, Col, Table } from "react-bootstrap";
+import {Button} from 'react-bootstrap'
 import Card from "components/Card/Card.jsx";
 import { thArray, tdArray } from "variables/Variables.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,8 +36,32 @@ export default class MembershipDetails extends Component {
         console.error(error);
       });
   }
+  deleteItemFromState = (id) => {
+    const updatedItems = this.state.MembershipDetails.filter(item => item.id !== id)
+    this.setState({ MembershipDetails: updatedItems })
+    
+   
+  }
+  deleteItem=(id)=>{
+    fetch(`${HEROKU_API_HOST}/api/v1/membership_plans/${id} `, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Token token=${auth_token},email=${Email}`
+      },
+    })
+    .then(response => response.json())
+      .then(res => {
+        this. deleteItemFromState(id)
+        
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
   render() {
-    const tableHeader=['customer Id','desk Id','membershipPlan Id','Primaryadmin id','orgnazation Id' , 'start Date']
+    const tableHeader=['customer Id','desk Id','membershipPlan Id','Primaryadmin id','orgnazation Id' , 'start Date','Action']
     
     return (
       <div className="content">
@@ -67,7 +92,20 @@ export default class MembershipDetails extends Component {
                             <td>{prop.organization_id}</td>
                             <td>{prop.primary_admin_id}</td>
                             <td>{prop.start_date}</td>
-                            
+                            <td>
+                            <td bordered={false} >
+                                <Button bsStyle="info" onClick={()=>this.updateState(prop)} simple type="button" bsSize="xs">
+                                  <i className="fa fa-edit" />
+                                </Button>
+                               
+                                   </td>
+                              <td bordered={false} >
+                              <Button bsStyle="info" onClick={()=>this. deleteItem(prop.id)} simple type="button" bsSize="xs">
+                              <i class="fa fa-times"></i>
+                                </Button>
+                              
+                            </td>
+                            </td>  
                           </tr>);
                       })}
                     </tbody>

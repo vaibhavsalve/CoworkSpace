@@ -448,7 +448,26 @@ table tbody th {
   
  
   
- 
+ /*Stapper*/
+ .stepperWrapper{
+  visibility: visible;
+  opacity: 1;
+  height: 300px;
+  background-color: white;
+  border-radius: 5px;
+  width: 700px;
+  height: 400px;
+  padding: 16px;
+  margin-left: 132px;
+
+ }
+/*for cardtitle */
+ .card__title {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  position: relative;
+text-align:left
+}
   
 
  

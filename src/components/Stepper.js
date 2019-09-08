@@ -4,8 +4,11 @@ import {Form,Label} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bs-stepper/dist/css/bs-stepper.min.css';
 import Stepper from 'bs-stepper'
+import { Modal } from 'react-bootstrap'
+import Maps from '../views/Maps'
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { green } from '@material-ui/core/colors';
 
 const HEROKU_API_HOST = 'https://coworkspace.herokuapp.com'
 const auth_token = `CM+z+hIBBvAIYzyycJziHIpmETKvezOeSZeYHy03KEOfckrxUm7YXojTogsgVbDB7+rBpiDWKoQVt318oTiAIQ==`;
@@ -37,6 +40,34 @@ export default class Steppe extends Component {
       name: 'React',
       customer_slug: "kickstart"
     }
+    // handleClearForm=(e) =>{
+    //   e.preventDefault();
+    //   this.setState({
+        
+    //       membership: {
+    //         type: '',
+    //         start_date: '',
+    //         desk_id: '',
+    //         membership_plan_id: '',
+           
+            
+    //       },
+    //       organization_attributes: {
+    //         name: "",
+    //         contact_no: "",
+    //         address: "",
+    //         website: ""
+    //       },
+    //       primary_admin_attributes: {
+    //         email: "",
+    //         name: "",
+    //         mobile: ""
+    //       },
+    //       name: 'React',
+    //       customer_slug: "kickstart"
+        
+    //   });
+    // }
 
     this.handletype = this.handletype.bind(this);
     this.handleMemberShipPlan = this.handleMemberShipPlan.bind(this);
@@ -149,9 +180,9 @@ export default class Steppe extends Component {
     console.log(this.state)
     return (
       <div >
-      
+     {/* < Maps/> */}
         <div id="stepper1" className="bs-stepper">
-          <div className="bs-stepper-header" style={{width:700 ,marginLeft:150}}>
+          <div className="bs-stepper-header" style={{width:500 ,marginLeft:230,marginTop:20}}>
             <div className="step" data-target="#test-l-1" >
               <button className="step-trigger" style={{flexDirection:"column"}}>
                 <span className="bs-stepper-circle">1</span>
@@ -173,18 +204,15 @@ export default class Steppe extends Component {
               </button>
             </div>
           </div>
-
-          <div className="bs-stepper-content" style={{ marginTop: 40 }}>
-            
+          <div className="bs-stepper-content" style={{ marginTop: 20 }}>
             <Form onSubmit={this.onSubmit}>
-            <Card>
-           
-              <div id="test-l-1" className="content">
-              
-            <CardBody>
-              <h4 className='cardTitle'>
+              <div id="test-l-1" className="content"> 
+            <div className='stepperWrapper'>
+              <div className='.card__title ' style={{paddingBottom:30}}>
+              <h4 className='.card__title '  > 
             Membership Details
             </h4>
+            </div>
                 <div className="form-group row" >
                   <label  className='col-sm-2'>Type</label>
                   <div className="col-sm-10">
@@ -232,20 +260,24 @@ export default class Steppe extends Component {
                       value={this.state.membership.desk_id}
                     />
                   </div>
-                </div>
-                <button className="btn btn-primary" onClick={()=>this.stepper.next()}>Next</button>
-                </CardBody>
+                </div> 
+                <div className="form-group row" style={{marginTop:40,padding:5}}>
+                <div className="col-sm-12" >
              
-              </div>
-              </Card>
-            
-              <Card>
+             <button   className="btn btn-primary" onClick={()=>this.stepper.next()}>Next</button>
+          </div>
+          </div>
+          
+           </div>
+         
+             </div> 
               <div id="test-l-2" className="content">
-             
-            <CardBody>
-            <h4 className='cardTitle'>
+              <div className='stepperWrapper'>
+              <div className='.card__title ' style={{paddingBottom:30}}>
+            <h4 >
             Organization Details
             </h4>
+            </div>
                 <div className="form-group row ">
                   <label  className='col-sm-2'> Name</label>
                   <div className="col-sm-10 ">
@@ -276,6 +308,7 @@ export default class Steppe extends Component {
                   </div>
                 </div>
                 <div className="form-group row">
+
                   <label  className='col-sm-2'>Invoicing Address</label>
                   <div className="col-sm-10">
                     <textarea className="form-control" id="InvoicingAd" rows="3"
@@ -292,16 +325,20 @@ export default class Steppe extends Component {
                 <button className="btn btn-primary" onClick={() => this.stepper.previous()}>Back</button>
                 </div>
                 </div>
-            </CardBody>
+                </div>
+           
               </div>
-              </Card>
-              <Card>
+              
+              
               <div id="test-l-3" className="content ">
             
-            <CardBody>
-            <h4 className='cardTitle'>
+              <div className='stepperWrapper'>
+              <div className='.card__title ' style={{paddingBottom:30}}>
+              <h4 className='.card__title '  > 
+           
             Admin Details
             </h4>
+            </div>
                 <div className="form-group row">
                   <label  className='col-sm-2'>Name</label>
                   <div className="col-sm-10 ">
@@ -332,7 +369,7 @@ export default class Steppe extends Component {
                     />
                   </div>
                 </div>
-                <div className="row">
+                <div className="row" style={{marginTop:95 }}>
                 <div className="col-sm-1 ">
                 <button className="btn btn-primary" onClick={() => this.stepper.previous()}>Back</button>
                 </div>
@@ -341,10 +378,10 @@ export default class Steppe extends Component {
                 </div>
                 </div>
 
-              
-             </CardBody>
               </div>
-              </Card>
+     
+              </div>
+             
             </Form>
           </div>
         </div>

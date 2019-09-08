@@ -15,8 +15,11 @@ class TableList extends Component {
   state={
     Rooms:[],
     addButton:true,
-    redirect: false
+    redirect: false,
+    isEdit:false,
   }
+
+  //Fetch api
   componentDidMount(){
     fetch(`${HEROKU_API_HOST}/api/v1/rooms`, {
       method: 'GET',
@@ -38,9 +41,23 @@ class TableList extends Component {
         console.error(error);
       });   
   }
-  
- 
- 
+  //remove api
+  remove=(roomid)=>{
+    fetch(`${HEROKU_API_HOST}/api/v1/rooms/${roomid}`, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Token token=${auth_token},email=${Email}`
+      }
+    })
+     
+      .catch((error) => {
+        console.error(error);
+      });
+
+  }
+
   render() {
     const edit = <Tooltip id="edit_tooltip">Edit </Tooltip>;
     const remove = <Tooltip id="remove_tooltip">Remove</Tooltip>;
@@ -52,7 +69,7 @@ class TableList extends Component {
         <Grid fluid>
           <Row>
             <Col md={12}>
-            < RoomPostApi/>
+            < RoomPostApi isEdit={false}/>
               <Card
                 title="Rooms Details"
                 addButton={this.state.addButton}
@@ -82,15 +99,16 @@ class TableList extends Component {
                             <td class="td-actions text-right">
                             <td bordered={false} >
                             <OverlayTrigger placement="top" overlay={edit}>
-                                <Button bsStyle="info" simple type="button" bsSize="xs">
+                                          < RoomPostApi isEdit={true} id ={prop.id} name={prop.name} capacity={prop.capacity}/>
+                                {/* <Button bsStyle="info" simple type="button" bsSize="xs">
                                   <i className="fa fa-edit" />
-                                </Button>
+                                </Button> */}
                               </OverlayTrigger>
                             
                                    </td>
                               <td bordered={false} >
                               <OverlayTrigger placement="top" overlay={remove}>
-                              <Button bsStyle="info"  simple type="button" bsSize="xs">
+                              <Button bsStyle="info" onClick={()=>this.remove(prop.id)} simple type="button" bsSize="xs">
                               <i class="fa fa-times"></i>
                                 </Button> 
                                 </OverlayTrigger>

@@ -43,6 +43,30 @@ class TableList extends Component {
         console.error(error);
       });   
   }
+  deleteItemFromState = (id) => {
+    const updatedItems = this.state.Users.filter(item => item.id !== id)
+    this.setState({ Users: updatedItems })
+    
+   
+  }
+  deleteItem=(id)=>{
+    fetch(`${HEROKU_API_HOST}/api/v1/membership_plans/${id} `, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Token token=${auth_token},email=${Email}`
+      },
+    })
+    .then(response => response.json())
+      .then(res => {
+        this. deleteItemFromState(id)
+        
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
   render() {
     const Usersheader = ["ID", "Email", "Contact no",'Action'];
     return (
@@ -72,10 +96,25 @@ class TableList extends Component {
                             <td>{prop.emergencyContact}</td>
                             <td>
                               {this.renderRedirect()}
-                              
-                              <Button bsStyle="info" onClick={this.setRedirect}  fill type="submit">
+                              <td bordered={false} >
+                              <Button bsStyle="info" onClick={this.setRedirect}  simple type="submit">
                               Genarate Invoice
-                            </Button></td>
+                            </Button>
+                            </td>
+                            <td bordered={false} >
+                                <Button bsStyle="info" onClick={()=>this.updateState(prop)} simple type="button" bsSize="xs">
+                                  <i className="fa fa-edit" />
+                                </Button>
+                               
+                                   </td>
+                              <td bordered={false} >
+                              <Button bsStyle="info" onClick={()=>this. deleteItem(prop.id)} simple type="button" bsSize="xs">
+                              <i class="fa fa-times"></i>
+                                </Button>
+                              
+                            </td>
+                            </td>
+                            
                           </tr>
                           
                         );
